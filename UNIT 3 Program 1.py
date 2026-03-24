@@ -1,43 +1,48 @@
+# geometry.py
 import math as m
 
-def calc_circle(r):
-    return m.pi * r ** 2
+def area_circle(r):
+    return m.pi * (r ** 2)
 
-def calc_rectangle(l, w):
+def area_rectangle(l, w):
     return l * w
 
-def calc_triangle(b, h):
+def area_triangle(b, h):
     return 0.5 * b * h
 
 
-def main():
-    print("Select a shape:")
+
+
+# app.py
+import geometry as geo
+
+def run():
+    print("Select shape for area calculation:")
     print("1. Circle")
     print("2. Rectangle")
     print("3. Triangle")
 
-    choice = input("Enter choice: ")
+    opt = input("Enter your option: ")
 
-    if choice == "1":
-        r = float(input("Enter radius: "))
-        res = calc_circle(r)
-        print(f"Area of circle: {res:.2f}")
+    if opt == "1":
+        r = float(input("Radius: "))
+        result = geo.area_circle(r)
+        print(f"Area of circle: {result:.2f}")
 
-    elif choice == "2":
-        l = float(input("Enter length: "))
-        w = float(input("Enter width: "))
-        res = calc_rectangle(l, w)
-        print(f"Area of rectangle: {res:.2f}")
+    elif opt == "2":
+        l = float(input("Length: "))
+        w = float(input("Width: "))
+        result = geo.area_rectangle(l, w)
+        print(f"Area of rectangle: {result:.2f}")
 
-    elif choice == "3":
-        b = float(input("Enter base: "))
-        h = float(input("Enter height: "))
-        res = calc_triangle(b, h)
-        print(f"Area of triangle: {res:.2f}")
+    elif opt == "3":
+        b = float(input("Base: "))
+        h = float(input("Height: "))
+        result = geo.area_triangle(b, h)
+        print(f"Area of triangle: {result:.2f}")
 
     else:
-        print("Invalid selection.")
-
+        print("Invalid option selected.")
 
 if __name__ == "__main__":
-    main()
+    run()
